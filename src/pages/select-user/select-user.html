@@ -1,0 +1,79 @@
+<!--
+  Generated template for the SelectUserPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Chọn nhân viên Spa</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-content>
+    <ion-list>
+      <ion-list-header>
+        Nữ giới
+      </ion-list-header>
+
+      <ion-item-sliding *ngFor="let user of listUser | userEmployeeFemale" (click)="selectUser(user)">
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="assets/img/avatar-leia.png">
+          </ion-avatar>
+          <h2>{{user.Fullname == null? user.UserName : user.Fullname}}</h2>
+          <p>{{user.PhoneNumber}}</p>
+        </ion-item>
+        <ion-item-options>
+          <button ion-button color="light" icon-start>
+            <ion-icon name="ios-more"></ion-icon>
+            More
+          </button>
+          <button ion-button color="primary" icon-start>
+            <ion-icon name="text"></ion-icon>
+            Text
+          </button>
+          <button ion-button color="secondary" icon-start>
+            <ion-icon name="call"></ion-icon>
+            Call
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+
+    <ion-list>
+      <ion-list-header>
+        Nam giới
+      </ion-list-header>
+
+      <ion-item-sliding *ngFor="let user of listUser | userEmployeeMale" (click)="selectUser(user)">
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="assets/img/avatar-poe.png">
+          </ion-avatar>
+          <h2>{{user.Fullname == ' ' ? 'ok': user.Fullname}}</h2>
+          <p>{{user.PhoneNumber}}</p>
+        </ion-item>
+        <ion-item-options>
+          <button ion-button color="light" icon-start>
+            <ion-icon name="ios-more"></ion-icon>
+            More
+          </button>
+          <button ion-button color="primary" icon-start>
+            <ion-icon name="text"></ion-icon>
+            Text
+          </button>
+          <button ion-button color="secondary" icon-start>
+            <ion-icon name="call"></ion-icon>
+            Call
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+
+    </ion-list>
+  </ion-content>
+</ion-content>

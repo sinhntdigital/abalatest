@@ -1,0 +1,37 @@
+<!--
+  Generated template for the WpPostDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="kelly">
+    <ion-title>Bài viết</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="card-background-page">
+  <ion-card class="centerOnImage">
+    <img *ngIf="selectedPost._embedded" [src]="selectedPost._embedded['wp:featuredmedia'][0].source_url">
+    <!-- <div class="card-title">{{selectedPost.title.rendered}}</div> -->
+  </ion-card>
+  <ion-card>
+    <p style="font-style: italic;" [innerHTML]="selectedPost.date"></p>
+  </ion-card>
+
+  <ion-card>
+
+    <ion-card-content>
+      <h2 class="color kelly">
+        <strong>{{selectedPost.title.rendered}}</strong>
+      </h2>
+      <br>
+      <!-- <p style="font-style: italic;" [innerHTML]="selectedPost.date"></p> -->
+      <div [innerHTML]="selectedPost.content.rendered"></div>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

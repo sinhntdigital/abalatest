@@ -1,0 +1,148 @@
+<!--
+  Generated template for the BookingCreatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="batala1">
+    <ion-title>Tạo lịch hẹn Spa</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <!-- <ion-item>
+      <ion-input placeholder="Tiêu đề"></ion-input>
+    </ion-item> -->
+    <ion-item color="danger">
+      <p>Người đặt: {{user.Fullname}}</p>
+      <!-- <ion-input placeholder="Người đặt lịch" [(ngModel)]="user.Fullname" disabled></ion-input> -->
+    </ion-item>
+    <!-- <ion-item>
+      <ion-input placeholder="Vi trí"></ion-input>
+    </ion-item> -->
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header color="primary">
+      Bắt đầu:
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Ngày</ion-label>
+      <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="event.TuNgay_Date"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Thời gian</ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="event.TuNgay_Time"></ion-datetime>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header color="secondary">
+      Kết thúc:
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Ngày</ion-label>
+      <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="event.DenNgay_Date"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Giờ</ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="event.DenNgay_Time"></ion-datetime>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header color="kelly">
+      Chi tiết sự kiện:
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Cả ngày?</ion-label>
+      <ion-checkbox [(ngModel)]="itemBooking.IsCaNgay"></ion-checkbox>
+    </ion-item>
+
+    <!-- <ion-item>
+      <ion-label>Lặp lại</ion-label>
+      <ion-input placeholder="Chế độ lặp lại" [(ngModel)]="itemBooking.CheDoLapLaiJson" disabled></ion-input>
+    </ion-item> -->
+
+    <ion-item>
+      <ion-label>Chế độ lặp lại</ion-label>
+      <ion-select [(ngModel)]="itemBooking.CheDoLapLaiJson">
+        <ion-option value="Không lặp lại">Không lặp lại</ion-option>
+        <ion-option value="Hàng ngày">Hàng ngày</ion-option>
+        <ion-option value="Hàng tuần vào thứ hai">Hàng tuần vào thứ hai</ion-option>
+        <ion-option value="Hàng tháng vào thứ hai đầu tiên">Hàng tháng vào thứ hai đầu tiên</ion-option>
+        <ion-option value="Hàng năm vào ngày này tháng này.">Hàng năm vào ngày này tháng này</ion-option>
+        <ion-option value="Mọi ngày trong tuần (từ thứ hai đến thứ sáu)">Mọi ngày trong tuần (từ thứ hai đến thứ sáu)</ion-option>
+        <ion-option value="Tùy chỉnh...">Tùy chỉnh...</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Vị trí của bạn</ion-label>
+      <ion-input placeholder="Vi trí" [(ngModel)]="itemBooking.ViTriGeoJSON" disabled></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Cách nhắc nhở</ion-label>
+      <ion-select [(ngModel)]="tempCheDoThongBaoJson.HanhDong">
+        <ion-option value="Thông báo">Thông báo</ion-option>
+        <ion-option value="Gửi email">Gửi email</ion-option>
+        <!-- <ion-option value="Cả hai (Thông báo và email)">Cả hai (Thông báo và email)</ion-option> -->
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Thời gian nhắc nhở</ion-label>
+      <ion-input type="number" [(ngModel)]="tempCheDoThongBaoJson.SoLuongThoiGian"></ion-input>
+      <ion-select [(ngModel)]="tempCheDoThongBaoJson.DonViThoiGian">
+        <ion-option>phút</ion-option>
+        <ion-option>tiếng</ion-option>
+        <ion-option>ngày</ion-option>
+        <ion-option>tuần</ion-option>
+      </ion-select>
+    </ion-item>
+
+
+    <ion-item>
+        <ion-label>Mức công khai</ion-label>
+        <ion-select [(ngModel)]="tempCheDoCongKhaiJson.KieuCongKhai">
+          <ion-option value="bận">bận</ion-option>
+          <ion-option value="rảnh">rảnh</ion-option>
+        </ion-select>
+        <ion-select [(ngModel)]="tempCheDoCongKhaiJson.MucCongKhai">
+            <ion-option value="công khai">công khai</ion-option>
+            <ion-option value="riêng tư">riêng tư</ion-option>
+          </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Ghi chú</ion-label>
+          <ion-textarea placeholder="Xin mời nhập ghi chú" rows="5" [(ngModel)]="itemBooking.GhiChuHtml"></ion-textarea>
+        </ion-item>
+
+    <ion-item>
+      <ion-label></ion-label>
+    </ion-item>
+    <button ion-item (click)="selectUser_Employee()">
+      <ion-label>Chọn nhân viên</ion-label>
+      <ion-note item-end>{{itemBooking.DanhSachNhanVienSpa == null? "Chưa chọn": itemBooking.DanhSachNhanVienSpa.Fullname}}</ion-note>
+    </button>
+
+
+
+    <button ion-item (click)="selectUser_Friend()">
+      <ion-label>Mời bạn bè tham gia</ion-label>
+      <ion-note item-end>{{itemBooking.DanhSachKhachMoi == null? "Chưa chọn": itemBooking.DanhSachKhachMoi.Fullname}}</ion-note>
+
+    </button>
+  </ion-list>
+
+
+  <ion-row>
+    <button ion-button outline class="register-btn" block clear (click)="save($event)">Tạo lịch hẹn</button>
+  </ion-row>
+</ion-content>

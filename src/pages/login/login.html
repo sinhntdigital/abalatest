@@ -1,0 +1,70 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="kelly">
+    <ion-title>Đăng nhập</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<!--
+  <h3 class="color kelly">Chào mừng đến với
+    <span class="color batala1 cursorHand">BATALA</span>
+  </h3>
+  <h6 class="color kelly" style="font-style: italic;">
+    Hội tụ tài năng, thăng hoa nghệ thuật.
+  </h6> -->
+
+  <ion-card class="card-no-box">
+    <img src="./assets/imgs/logoBatalaSpa01.png">
+
+
+  </ion-card>
+
+
+  <form (ngSubmit)="login()" #registerForm="ngForm">
+    <ion-card class="card-no-box">
+        <ion-row>
+            <ion-item>
+                <h3 text-center class="color kelly">Mời bạn đăng nhập vào
+                    <span class="color batala1 cursorHand">BATALA</span>
+                  </h3>
+            </ion-item>
+          </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-list no-lines>
+            <!-- <ion-item ><span class="color kelly">Email:</span></ion-item> -->
+            <ion-item>
+              <ion-input type="text" placeholder="Mời nhập Email" name="email" [(ngModel)]="user.Email" required></ion-input>
+            </ion-item>
+            <!-- <ion-item ><span class="color kelly">Mật khẩu:</span></ion-item> -->
+            <ion-item>
+              <ion-input type="password" placeholder="Mời nhập mật khẩu" name="password" [(ngModel)]="user.Password" required></ion-input>
+            </ion-item>
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    <ion-row>
+      <button color="kelly" ion-button icon-start outline class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">
+        <ion-icon name="key" item-start></ion-icon>
+        Đăng nhập</button>
+    </ion-row>
+  </form>
+
+
+  <ion-row>
+    <button ion-button outline class="register-btn" block clear (click)="createAccount()">Tạo tài khoản mới</button>
+  </ion-row>
+
+  <h6 class="color kelly">
+    Hệ thống SPA trực tuyến
+    <span class="color batala1 cursorHand">BATALA</span> đồng hành cùng sắc đẹp của bạn.
+  </h6>
+</ion-content>
